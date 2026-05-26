@@ -35,14 +35,8 @@
         }
 
         @keyframes show {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .header {
@@ -118,9 +112,7 @@
             font-weight: bold;
         }
 
-        input,
-        select,
-        textarea {
+        input, select, textarea {
             width: 100%;
             padding: 16px;
             margin-bottom: 22px;
@@ -134,9 +126,7 @@
             transition: .3s;
         }
 
-        input:focus,
-        select:focus,
-        textarea:focus {
+        input:focus, select:focus, textarea:focus {
             outline: none;
             border: 1px solid #00f2fe;
             background: rgba(255, 255, 255, 0.15);
@@ -302,9 +292,7 @@
             transition: .3s;
         }
 
-        .whatsapp-float:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
     </style>
 </head>
 
@@ -313,13 +301,9 @@
     <div class="container">
 
         <div class="header">
-            <img src="logo.jpg" class="logo">
+            <img src="logo.png" class="logo">
             <h1>تاکسی VIP حسنی</h1>
-            <p>
-                سفر راحت، سریع و مطمئن
-                <br>
-                هرات ← مشهد
-            </p>
+            <p>سفر راحت، سریع و مطمئن<br>هرات ← مشهد</p>
             <div id="clock"></div>
         </div>
 
@@ -359,15 +343,13 @@
             <label>محل دقیق سوار شدن (لوکیشن / آدرس)</label>
             <textarea id="address" rows="3" placeholder="آدرس دقیق یا لینک نقشه گوگل مپ..."></textarea>
 
-            <button class="btn" onclick="sendToWhatsApp()">
-                ثبت رزرو در واتساپ
-            </button>
+            <button class="btn" onclick="sendToWhatsApp()">ثبت رزرو در واتساپ</button>
 
             <div class="share-box">
                 <p>این سایت را با دوستان خود به اشتراک بگذارید:</p>
                 <div class="share-btns">
-                    <a href="https://api.whatsapp.com/send?text=برای%20رزرو%20آنلاین%20تاکسی%20VIP%20هرات%20مشهد%20به%20سایت%20زیر%20مراجعه%20کنید:%20https://sites.google.com/view/taxi-herat-mashhad-hassani" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
-                    <a href="https://telegram.me/share/url?url=https://sites.google.com/view/taxi-herat-mashhad-hassani&text=رزرو%20آنلاین%20تاکسی%20VIP%20حسنی" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
+                    <a href="https://api.whatsapp.com/send?text=برای%20رزرو%20آنلاین%20تاکسی%20VIP%20هرات%20مشهد%20به%20سایت%20زیر%20مراجعه%20کنید:%20https://taxi-herat-mashhad-hassani.netlify.app" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
+                    <a href="https://telegram.me/share/url?url=https://taxi-herat-mashhad-hassani.netlify.app&text=رزرو%20آنلاین%20تاکسی%20VIP%20حسنی" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
                 </div>
             </div>
         </div>
@@ -375,30 +357,21 @@
         <div class="info">
             افغانستان 🇦🇫
             <div class="number">0780889098</div>
-
             ایران 🇮🇷
             <div class="number">09351023670</div>
 
-            <a href="tel:+93780889098" class="call-btn">
-                📞 تماس مستقیم
-            </a>
+            <a href="tel:+93780889098" class="call-btn">📞 تماس مستقیم</a>
             <br>
-            <a href="https://sites.google.com/view/taxi-herat-mashhad-hassani" target="_blank" class="site-btn">
-                🌐 ورود به سایت رسمی
-            </a>
+            <a href="https://sites.google.com/view/taxi-herat-mashhad-hassani" target="_blank" class="site-btn">🌐 ورود به سایت رسمی</a>
 
             <div class="footer">
-                تاکسی بین‌المللی هرات مشهد حسنی
-                <br>
-                سفر ایمن، سریع و VIP بین هرات و مشهد
+                تاکسی بین‌المللی هرات مشهد حسنی<br>سفر ایمن، سریع و VIP بین هرات و مشهد
             </div>
         </div>
 
     </div>
 
-    <a href="https://wa.me/93780889098" class="whatsapp-float" target="_blank">
-        💬
-    </a>
+    <a href="https://wa.me/93780889098" class="whatsapp-float" target="_blank">💬</a>
 
     <script>
         setInterval(() => {
@@ -420,19 +393,11 @@
                 return;
             }
 
-            if (phone.length < 10) {
-                alert("شماره تماس معتبر نیست");
-                return;
-            }
-
             let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 لوکیشن یا آدرس دقیق:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
-
-            alert("در حال انتقال به واتساپ...");
 
             let whatsappURL = "https://wa.me/93780889098?text=" + encodeURIComponent(message);
             window.open(whatsappURL, "_blank");
         }
     </script>
-
 </body>
 </html>
