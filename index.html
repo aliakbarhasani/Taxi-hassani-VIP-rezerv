@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>—“—Ê ¬‰·«Ì‰  «ò”Ì Õ”‰Ì VIP</title>
+
+<style>
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+padding:0;
+background:#0d0d0d;
+font-family:tahoma;
+color:white;
+}
+
+.container{
+width:95%;
+max-width:520px;
+margin:30px auto;
+background:#1b1b1b;
+border-radius:25px;
+overflow:hidden;
+border:1px solid #d4af37;
+box-shadow:0 0 25px rgba(255,215,0,0.2);
+animation:show .8s ease;
+}
+
+@keyframes show{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.header{
+padding:35px 20px;
+text-align:center;
+background:linear-gradient(135deg,#000,#1e1e1e);
+border-bottom:1px solid #d4af37;
+}
+
+.logo{
+width:120px;
+height:120px;
+object-fit:cover;
+border-radius:50%;
+border:4px solid #ffd700;
+margin-bottom:15px;
+box-shadow:0 0 20px rgba(255,215,0,.4);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.05);}
+100%{transform:scale(1);}
+}
+
+.header h1{
+margin:0;
+color:#ffd700;
+font-size:32px;
+}
+
+.header p{
+color:#cccccc;
+margin-top:10px;
+line-height:1.8;
+font-size:16px;
+}
+
+#clock{
+margin-top:15px;
+font-size:16px;
+color:#ffd700;
+}
+
+.car{
+width:100%;
+height:280px;
+background:url('logo.jpg') center/cover no-repeat;
+position:relative;
+}
+
+.car::after{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(
+to top,
+rgba(0,0,0,.7),
+transparent
+);
+}
+
+.form-box{
+padding:25px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+color:#ffd700;
+font-size:14px;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:14px;
+margin-bottom:18px;
+border:none;
+border-radius:12px;
+background:#2a2a2a;
+color:white;
+box-sizing:border-box;
+font-size:15px;
+transition:.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+outline:none;
+border:1px solid #ffd700;
+box-shadow:0 0 10px rgba(255,215,0,.3);
+}
+
+textarea{
+resize:none;
+}
+
+.btn{
+width:100%;
+background:#ffd700;
+color:black;
+border:none;
+padding:16px;
+border-radius:14px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 15px rgba(255,215,0,.4);
+}
+
+.btn:hover{
+background:#ffcc00;
+transform:scale(1.02);
+}
+
+.info{
+padding:20px;
+border-top:1px solid #333;
+text-align:center;
+}
+
+.number{
+font-size:18px;
+color:#ffd700;
+font-weight:bold;
+margin-top:10px;
+}
+
+.call-btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 25px;
+background:#ffd700;
+color:black;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+transition:.3s;
+}
+
+.call-btn:hover{
+background:#ffcc00;
+transform:scale(1.05);
+}
+
+.site-btn{
+display:inline-block;
+margin-top:12px;
+padding:12px 25px;
+background:white;
+color:black;
+text-decoration:none;
+border-radius:12px;
+font-weight:bold;
+transition:.3s;
+}
+
+.site-btn:hover{
+transform:scale(1.05);
+}
+
+.footer{
+text-align:center;
+color:#888;
+font-size:13px;
+margin-top:15px;
+line-height:1.8;
+}
+
+.whatsapp-float{
+position:fixed;
+bottom:20px;
+left:20px;
+width:60px;
+height:60px;
+background:#25d366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+color:white;
+box-shadow:0 0 15px rgba(0,0,0,.4);
+z-index:999;
+transition:.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<img src="logo.jpg" class="logo">
+
+<h1> «ò”Ì VIP Õ”‰Ì</h1>
+
+<p>
+”›— —«Õ ° ”—Ì⁄ Ê „ÿ„∆‰
+<br>
+Â—«  ? „‘Âœ
+</p>
+
+<div id="clock"></div>
+
+</div>
+
+<div class="car"></div>
+
+<div class="form-box">
+
+<label>‰«„ Ê ‰«„ Œ«‰Ê«œêÌ</label>
+<input type="text" id="name" placeholder="‰«„ ò«„·">
+
+<label>‘„«—Â  „«”</label>
+<input type="tel" id="phone" placeholder="0780xxxxxx">
+
+<label>„”Ì— ”›—</label>
+
+<select id="route">
+<option>Â—«  ? „‘Âœ VIP</option>
+<option>„‘Âœ ? Â—«  VIP</option>
+</select>
+
+<label> ⁄œ«œ „”«›—</label>
+
+<select id="passengers">
+<option>1 ‰›—</option>
+<option>2 ‰›—</option>
+<option>3 ‰›—</option>
+<option>4 ‰›—</option>
+</select>
+
+<label>‰Ê⁄ ŒÊœ—Ê</label>
+
+<select id="carType">
+<option>VIP „⁄„Ê·Ì</option>
+<option>VIP ·Êò”</option>
+<option>Ê‰ Œ«‰Ê«œêÌ</option>
+</select>
+
+<label> «—ÌŒ Õ—ò </label>
+<input type="date" id="date">
+
+<label>¬œ—” Ì«  Ê÷ÌÕ« </label>
+
+<textarea
+id="address"
+rows="4"
+placeholder="¬œ—” œﬁÌﬁ Ì«  Ê÷ÌÕ« ..."
+></textarea>
+
+<button class="btn" onclick="sendToWhatsApp()">
+À»  —“—Ê œ— Ê« ”«Å
+</button>
+
+</div>
+
+<div class="info">
+
+«›€«‰” «‰ ????
+
+<div class="number">
+0780889098
+</div>
+
+«Ì—«‰ ????
+
+<div class="number">
+09351023670
+</div>
+
+<a href="tel:+93780889098" class="call-btn">
+??  „«” „” ﬁÌ„
+</a>
+
+<br>
+
+<a
+href="https://sites.google.com/view/taxi-herat-mashhad-hassani"
+target="_blank"
+class="site-btn"
+> 
+?? Ê—Êœ »Â ”«Ì  —”„Ì
+</a>
+
+<div class="footer">
+
+ «ò”Ì »Ì‰ù«·„··Ì Â—«  „‘Âœ Õ”‰Ì
+
+<br>
+
+”›— «Ì„‰° ”—Ì⁄ Ê VIP »Ì‰ Â—«  Ê „‘Âœ
+
+</div>
+
+</div>
+
+</div>
+
+<a
+href="https://wa.me/93780889098"
+class="whatsapp-float"
+target="_blank"
+> 
+??
+</a>
+
+<script>
+
+setInterval(()=>{
+
+let now = new Date();
+
+document.getElementById("clock")
+.innerHTML =
+now.toLocaleTimeString("fa-IR");
+
+},1000);
+
+function sendToWhatsApp(){
+
+let name =
+document.getElementById("name").value;
+
+let phone =
+document.getElementById("phone").value;
+
+let route =
+document.getElementById("route").value;
+
+let passengers =
+document.getElementById("passengers").value;
+
+let carType =
+document.getElementById("carType").value;
+
+let date =
+document.getElementById("date").value;
+
+let address =
+document.getElementById("address").value;
+
+if(name === "" || phone === "" || date === ""){
+
+alert("·ÿ›« «ÿ·«⁄«  ÷—Ê—Ì —« ò«„· ò‰Ìœ");
+
+return;
+
+}
+
+if(phone.length < 10){
+
+alert("‘„«—Â  „«” „⁄ »— ‰Ì” ");
+
+return;
+
+}
+
+let message = `
+?? —“—Ê ÃœÌœ  «ò”Ì VIP
+
+?? ‰«„:
+${name}
+
+?? ‘„«—Â  „«”:
+${phone}
+
+??? „”Ì—:
+${route}
+
+??  ⁄œ«œ „”«›—:
+${passengers}
+
+?? ‰Ê⁄ ŒÊœ—Ê:
+${carType}
+
+??  «—ÌŒ Õ—ò :
+${date}
+
+?? ¬œ—” /  Ê÷ÌÕ« :
+${address}
+
+?? ”«Ì  —”„Ì:
+https://sites.google.com/view/taxi-herat-mashhad-hassani
+`;
+
+alert("œ— Õ«· «‰ ﬁ«· »Â Ê« ”«Å...");
+
+let whatsappURL =
+"https://wa.me/93780889098?text=" +
+encodeURIComponent(message);
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+}
+
+</script>
+
+</body>
+</html>
