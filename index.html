@@ -14,9 +14,10 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #0a2e36, #05161a);
+            /* تم روشن، شاد و جوان‌پسند */
+            background: linear-gradient(135deg, #e0f7fa, #fffaf0);
             font-family: tahoma, sans-serif;
-            color: white;
+            color: #1a3a3a;
             min-height: 100vh;
         }
 
@@ -24,13 +25,13 @@
             width: 95%;
             max-width: 540px;
             margin: 40px auto;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 30px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 50px rgba(0, 242, 254, 0.15);
+            border: 1px solid rgba(0, 150, 136, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 150, 136, 0.15);
             animation: show .8s ease;
         }
 
@@ -42,8 +43,9 @@
         .header {
             padding: 40px 20px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: linear-gradient(to bottom, #009688, #00796b);
+            color: white;
+            border-bottom: 2px solid #004d40;
         }
 
         .logo {
@@ -51,28 +53,28 @@
             height: 130px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #00f2fe;
+            border: 4px solid #fff;
             margin-bottom: 20px;
-            box-shadow: 0 0 25px rgba(0, 242, 254, 0.5);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.03); }
             100% { transform: scale(1); }
         }
 
         .header h1 {
             margin: 0;
-            color: #00f2fe;
-            font-size: 36px;
+            color: #ffffff;
+            font-size: 34px;
             font-weight: bold;
-            text-shadow: 0 2px 10px rgba(0, 242, 254, 0.3);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .header p {
-            color: #e0e0e0;
+            color: #e0f2f1;
             margin-top: 12px;
             line-height: 1.8;
             font-size: 19px;
@@ -82,60 +84,70 @@
         #clock {
             margin-top: 15px;
             font-size: 18px;
-            color: #00f2fe;
+            color: #ffd54f;
             font-weight: bold;
+            background: rgba(0, 0, 0, 0.15);
+            display: inline-block;
+            padding: 4px 15px;
+            border-radius: 20px;
         }
 
         .car {
             width: 100%;
-            height: 280px;
+            height: 260px;
             background: url('logo.png') center/cover no-repeat;
             position: relative;
         }
 
-        .car::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(10, 46, 54, 0.9), transparent);
-        }
-
+        /* خط جداکننده ضخیم و سفید بالای فرم برای عدم تداخل با تصویر */
         .form-box {
             padding: 30px;
+            background: #ffffff;
+            border-top: 5px solid #009688;
+            position: relative;
         }
 
         label {
             display: block;
-            margin-bottom: 10px;
-            color: #00f2fe;
-            font-size: 17px;
+            margin-bottom: 8px;
+            color: #004d40;
+            font-size: 16px;
             font-weight: bold;
         }
 
+        /* استایل جدید کادرها: پس‌زمینه سبز روشن ملایم و رنگ متن سیاه */
         input, select, textarea {
             width: 100%;
             padding: 16px;
             margin-bottom: 22px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid #b2dfdb;
             border-radius: 14px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(5px);
-            color: white;
+            background-color: #e8f5e9; /* سبز روشن ملایم */
+            color: #000000; /* رنگ متن سیاه */
             box-sizing: border-box;
             font-size: 17px;
+            font-weight: bold;
             transition: .3s;
         }
 
+        /* وقتی کاربر روی کادر کلیک میکند پس‌زمینه سفید خالص می‌شود */
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border: 1px solid #00f2fe;
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+            border: 2px solid #009688;
+            background-color: #ffffff; /* سفید خالص */
+            color: #000000;
+            box-shadow: 0 0 12px rgba(0, 150, 136, 0.3);
+        }
+
+        /* استایل متن پِلیس‌هولدر داخل کادرها */
+        input::placeholder, textarea::placeholder {
+            color: #757575;
+            font-weight: normal;
         }
 
         select option {
-            background: #0a2e36;
-            color: white;
+            background: #ffffff;
+            color: #000000;
         }
 
         textarea {
@@ -144,102 +156,121 @@
 
         .btn {
             width: 100%;
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.2));
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            color: #00f2fe;
-            border: 1px solid rgba(0, 242, 254, 0.4);
+            background: linear-gradient(135deg, #00cbaf, #009688);
+            color: white;
+            border: none;
             padding: 18px;
             border-radius: 16px;
             font-size: 20px;
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 8px 20px rgba(0, 242, 254, 0.15);
-            text-shadow: 0 1px 5px rgba(0, 242, 254, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 150, 136, 0.3);
             margin-top: 10px;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, rgba(0, 242, 254, 0.4), rgba(79, 172, 254, 0.4));
-            color: white;
-            border: 1px solid #00f2fe;
-            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.4);
+            background: linear-gradient(135deg, #009688, #00796b);
+            box-shadow: 0 8px 22px rgba(0, 150, 136, 0.4);
             transform: translateY(-2px);
         }
 
         .info {
             padding: 30px 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #e0e0e0;
             text-align: center;
-            background: rgba(0, 0, 0, 0.2);
+            background: #f9f9f9;
             font-size: 18px;
             font-weight: bold;
+            color: #333;
         }
 
         .number {
             font-size: 22px;
-            color: #00f2fe;
+            color: #00796b;
             font-weight: bold;
-            margin-top: 8px;
+            margin-top: 6px;
             margin-bottom: 15px;
             letter-spacing: 1px;
         }
 
-        .call-btn {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 14px 30px;
-            background: rgba(0, 242, 254, 0.1);
-            color: #00f2fe;
-            border: 1px solid rgba(0, 242, 254, 0.3);
+        .social-box {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .call-btn, .tg-btn {
+            flex: 1;
+            padding: 14px 20px;
             text-decoration: none;
             border-radius: 14px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             transition: .3s;
+            text-align: center;
+        }
+
+        .call-btn {
+            background: #e0f2f1;
+            color: #00796b;
+            border: 1px solid #b2dfdb;
         }
 
         .call-btn:hover {
-            background: #00f2fe;
-            color: black;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-            transform: scale(1.05);
+            background: #00796b;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,121,107,0.2);
+        }
+
+        .tg-btn {
+            background: #e1f5fe;
+            color: #0288d1;
+            border: 1px solid #b3e5fc;
+        }
+
+        .tg-btn:hover {
+            background: #0288d1;
+            color: white;
+            box-shadow: 0 5px 15px rgba(2,136,209,0.2);
         }
 
         .site-btn {
             display: inline-block;
-            margin-top: 16px;
-            padding: 14px 30px;
-            background: rgba(255, 255, 255, 0.08);
+            width: 80%;
+            padding: 14px 20px;
+            background: #78909c;
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: none;
             text-decoration: none;
             border-radius: 14px;
             font-size: 17px;
             font-weight: bold;
             transition: .3s;
+            text-align: center;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .site-btn:hover {
-            background: white;
-            color: black;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-            transform: scale(1.05);
+            background: #455a64;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
         }
 
         .share-box {
             margin-top: 25px;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.03);
+            background: #f5f5f5;
             border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid #e0e0e0;
         }
 
         .share-box p {
             margin: 0 0 12px 0;
             font-size: 15px;
-            color: #a0a0a0;
+            color: #616161;
         }
 
         .share-btns {
@@ -255,19 +286,18 @@
             border-radius: 10px;
             font-size: 14px;
             font-weight: bold;
-            color: white;
             transition: 0.3s;
             text-align: center;
         }
 
-        .share-wa { background: rgba(37, 211, 102, 0.2); border: 1px solid #25d366; color: #25d366; }
-        .share-tg { background: rgba(0, 136, 204, 0.2); border: 1px solid #0088cc; color: #0088cc; }
-        .share-wa:hover { background: #25d366; color: white; }
-        .share-tg:hover { background: #0088cc; color: white; }
+        .share-wa { background: #e8f5e9; border: 1px solid #4caf50; color: #2e7d32; }
+        .share-tg { background: #e1f5fe; border: 1px solid #03a9f4; color: #0277bd; }
+        .share-wa:hover { background: #4caf50; color: white; }
+        .share-tg:hover { background: #03a9f4; color: white; }
 
         .footer {
             text-align: center;
-            color: #a0a0a0;
+            color: #757575;
             font-size: 15px;
             margin-top: 25px;
             line-height: 1.8;
@@ -279,7 +309,7 @@
             left: 25px;
             width: 65px;
             height: 65px;
-            background: #25d366;
+            background: #4caf50;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -287,7 +317,7 @@
             font-size: 32px;
             text-decoration: none;
             color: white;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
             z-index: 999;
             transition: .3s;
         }
@@ -311,7 +341,7 @@
 
         <div class="form-box">
             <label>نام و نام خانوادگی</label>
-            <input type="text" id="name" placeholder="نام کامل">
+            <input type="text" id="name" placeholder="نام کامل شما">
 
             <label>شماره تماس</label>
             <input type="tel" id="phone" placeholder="0780xxxxxx">
@@ -348,8 +378,8 @@
             <div class="share-box">
                 <p>این سایت را با دوستان خود به اشتراک بگذارید:</p>
                 <div class="share-btns">
-                    <a href="https://api.whatsapp.com/send?text=برای%20رزرو%20آنلاین%20تاکسی%20VIP%20هرات%20مشهد%20به%20سایت%20زیر%20مراجعه%20کنید:%20https://taxi-herat-mashhad-hassani.netlify.app" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
-                    <a href="https://telegram.me/share/url?url=https://taxi-herat-mashhad-hassani.netlify.app&text=رزرو%20آنلاین%20تاکسی%20VIP%20حسنی" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
+                    <a href="https://api.whatsapp.com/send?text=%D8%A1%20%D8%B1%D8%B2%D8%B1%D9%85%20%D8%A2%D9%86%D9%84%D8%A7%DB%8C%D9%86%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20VIP%20%D8%AD%D8%B3%D9%86%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%87%20%D8%Bای%D8%AA%20%D8%B2%D9%8A%D8%B1%20%D9%85%D8%B1%D8%A7%D8%AC%D8%B9%D9%87%20%DA%A9%D9%86%DB%8C%D8%AF%3A%20https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
+                    <a href="https://telegram.me/share/url?url=https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F&text=%D8%B1%D8%B2%D8%B1%D9%85%20%D8%A2%D9%86%D9%84%D8%A7%DB%8C%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20VIP%20%D8%AD%D8%B3%D9%86%DB%8C" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
                 </div>
             </div>
         </div>
@@ -360,9 +390,12 @@
             ایران 🇮🇷
             <div class="number">09351023670</div>
 
-            <a href="tel:+93780889098" class="call-btn">📞 تماس مستقیم</a>
-            <br>
-            <a href="https://images.google.com/view/taxi-herat-mashhad-hassani" target="_blank" class="site-btn">🌐 ورود به سایت رسمی</a>
+            <div class="social-box">
+                <a href="tel:+93780889098" class="call-btn">📞 تماس مستقیم</a>
+                <a href="https://t.me/ALIAKBAR_HASSANI" target="_blank" class="tg-btn">✈️ پیام در تلگرام</a>
+            </div>
+            
+            <a href="https://sites.google.com/view/taxi-herat-mashhad-hassani" target="_blank" class="site-btn">🌐 ورود به سایت رسمی</a>
 
             <div class="footer">
                 تاکسی بین‌المللی هرات مشهد حسنی<br>سفر ایمن، سریع و VIP بین هرات و مشهد
@@ -371,7 +404,7 @@
 
     </div>
 
-    <a href="https://wa.me/93780889098" class="whatsapp-float" target="_blank">💬</a>
+    <a href="https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0" class="whatsapp-float" target="_blank" onclick="copyFloatMessage()">💬</a>
 
     <script>
         setInterval(() => {
@@ -389,15 +422,26 @@
             let address = document.getElementById("address").value;
 
             if (name === "" || phone === "" || date === "") {
-                alert("لطفاً اطلاعات ضروری را کامل کنید");
+                alert("لطفاً اطلاعات ضروری (نام، شماره تماس و تاریخ) را کامل کنید.");
                 return;
             }
 
             let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 لوکیشن یا آدرس دقیق:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
 
-            let whatsappURL = "https://wa.me/93780889098?text=" + encodeURIComponent(message);
-            window.open(whatsappURL, "_blank");
+            navigator.clipboard.writeText(message).then(() => {
+                alert("اطلاعات رزرو شما کپی شد! در صفحه بعد پیام را در چت واتساپ پیست (Paste) کنید.");
+                window.open("https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0", "_blank");
+            }).catch(err => {
+                alert("در حال هدایت به واتساپ بیزینس حسنی...");
+                window.open("https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0", "_blank");
+            });
+        }
+
+        function copyFloatMessage() {
+            let msg = "سلام وقت بخیر، جهت رزرو تاکسی بین‌المللی هرات مشهد پیام می‌دهم.";
+            navigator.clipboard.writeText(msg);
         }
     </script>
+
 </body>
 </html>
