@@ -82,17 +82,41 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        #clock {
-            margin-top: 15px;
-            font-size: 18px;
+        /* باکس اطلاعات زمان کابل و خوش‌آمدگویی بالای ماشین */
+        .kabul-time-box {
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(0, 242, 254, 0.2);
+            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .welcome-msg {
+            font-size: 16px;
             color: #ffd700;
             font-weight: bold;
-            background: rgba(0, 0, 0, 0.3);
-            display: inline-block;
-            padding: 6px 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+            margin-bottom: 8px;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+        }
+
+        .time-row {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 15px;
+            color: #e0e1dd;
+        }
+
+        .time-badge {
+            background: rgba(0, 180, 219, 0.15);
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .time-badge span {
+            color: #00f2fe;
         }
 
         .car {
@@ -155,6 +179,19 @@
 
         textarea {
             resize: none;
+        }
+
+        .date-shamsi-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .date-shamsi-group select {
+            margin-bottom: 0;
+            flex: 1;
+            padding: 16px 8px;
+            font-size: 16px;
         }
 
         .btn {
@@ -340,7 +377,14 @@
             <img src="logo.png" class="logo">
             <h1>تاکسی VIP حسنی</h1>
             <p>سفر راحت، سریع و مطمئن<br>هرات ← مشهد</p>
-            <div id="clock"></div>
+        </div>
+
+        <div class="kabul-time-box">
+            <div class="welcome-msg">✨ مسافران گرامی، به سیستم رزرو آنلاین خوش آمدید ✨</div>
+            <div class="time-row">
+                <div class="time-badge">🕒 ساعت کابل: <span id="kabulClock">00:00:00</span></div>
+                <div class="time-badge">📅 امروز: <span id="kabulDate">-- / -- / --</span></div>
+            </div>
         </div>
 
         <div class="car"></div>
@@ -373,8 +417,31 @@
                 <option value="ون">ون خانوادگی</option>
             </select>
 
-            <label>تاریخ حرکت</label>
-            <input type="date" id="date">
+            <label>تاریخ حرکت (شمسی)</label>
+            <div class="date-shamsi-group">
+                <select id="shamsiYear">
+                    <option value="1405">1405</option>
+                    <option value="1406">1406</option>
+                    <option value="1407">1407</option>
+                </select>
+                <select id="shamsiMonth">
+                    <option value="01">فروردین</option>
+                    <option value="02">اردیبهشت</option>
+                    <option value="03">خرداد</option>
+                    <option value="04">تیر</option>
+                    <option value="05">مرداد</option>
+                    <option value="06">شهریور</option>
+                    <option value="07">مهر</option>
+                    <option value="08">آبان</option>
+                    <option value="09">آذر</option>
+                    <option value="10">دی</option>
+                    <option value="11">بهمن</option>
+                    <option value="12">اسفند</option>
+                </select>
+                <select id="shamsiDay">
+                    <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>
+                </select>
+            </div>
 
             <label>محل دقیق برای سوار شدن از آدرس و یا لوکیشن</label>
             <textarea id="address" rows="3" placeholder="بخش توضیحات ویا ادرس دقیق یا لینک نقشه گوگل مپس مسافر"></textarea>
@@ -413,32 +480,69 @@
     <a href="https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0" class="whatsapp-float" target="_blank">💬</a>
 
     <script>
-        setInterval(() => {
-            let now = new Date();
-            document.getElementById("clock").innerHTML = now.toLocaleTimeString("fa-IR");
-        }, 1000);
+        // تابع تبدیل تاریخ میلادی سیستم به شمسی جهت مقداردهی خودکار منوها و ساعت کابل
+        function getKabulShamsiDetails() {
+            let options = { timeZone: 'Asia/Kabul', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            let formatter = new Intl.DateTimeFormat('fa-IR', options);
+            let parts = formatter.formatToParts(new Date());
+            
+            let details = {};
+            parts.forEach(p => { details[p.type] = p.value; });
+            return details;
+        }
+
+        // انگلیسی کردن اعداد فارسی برای استفاده در کدهای برنامه نویسی
+        function convertFaToEn(str) {
+            return str.replace(/[٠-٩]/g, d => d.charCodeAt(0) - 1632).replace(/[۰-۹]/g, d => d.charCodeAt(0) - 1776);
+        }
+
+        // بروزرسانی زنده ساعت کابل و تنظیم تاریخ بالای صفحه
+        function updateKabulTime() {
+            let d = getKabulShamsiDetails();
+            
+            // نمایش ثانیه‌شمار زنده
+            document.getElementById("kabulClock").innerHTML = ${d.hour}:${d.minute}:${d.second};
+            
+            // نمایش تاریخ بالای صفحه
+            document.getElementById("kabulDate").innerHTML = ${d.year}/${d.month}/${d.day};
+        }
+
+        // مقداردهی اتوماتیک منوهای کشویی فرم بر اساس تاریخ امروز شمسی کابل
+        function setAutomaticDropdowns() {
+            let d = getKabulShamsiDetails();
+            let enYear = convertFaToEn(d.year).trim();
+            let enMonth = convertFaToEn(d.month).padStart(2, '0');
+            let enDay = convertFaToEn(d.day).padStart(2, '0');
+
+            if(document.getElementById("shamsiYear").querySelector(option[value="${enYear}"])) {
+                document.getElementById("shamsiYear").value = enYear;
+            }
+            document.getElementById("shamsiMonth").value = enMonth;
+            document.getElementById("shamsiDay").value = enDay;
+        }
+
+        // اجرای توابع در زمان لود اولیه صفحه
+        setInterval(updateKabulTime, 1000);
+        updateKabulTime();
+        setAutomaticDropdowns();
 
         function sendToWhatsApp() {
-            let name = document.getElementById("name").value;
-            let phone = document.getElementById("phone").value;
+            let name = document.getElementById("name").value || 'ثبت نشده';
+            let phone = document.getElementById("phone").value || 'ثبت نشده';
             let route = document.getElementById("route").value;
             let passengers = document.getElementById("passengers").value;
             let carType = document.getElementById("carType").value;
-            let date = document.getElementById("date").value;
-            let address = document.getElementById("address").value;
+            let address = document.getElementById("address").value || 'ثبت نشده';
 
-            if (name === "" || phone === "" || date === "") {
-                alert("لطفاً اطلاعات ضروری (نام، شماره تماس و تاریخ) را کامل کنید.");
-                return;
-            }
+            // دریافت مقادیر (که به صورت پیش‌فرض امروز هستند یا توسط کاربر تغییر کرده‌اند)
+            let year = document.getElementById("shamsiYear").value;
+            let month = document.getElementById("shamsiMonth").value;
+            let day = document.getElementById("shamsiDay").value;
+            let shamsiDate = ${year}/${month}/${day};
 
-            // تنظیم ساختار متن فرم رزرو مسافر
-            let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 محل دقیق سوار شدن یا توضیحات:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
+            let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${shamsiDate}\n\n📍 محل دقیق سوار شدن یا توضیحات:\n${address}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
 
-            // کدگذاری متن برای ارسال ایمن بدون تداخل ساختاری
             let encodedMessage = encodeURIComponent(message);
-            
-            // پیوند دادن اطلاعات فرم کدگذاری شده به انتهای لینک اختصاصی بیزینس شما
             let whatsappUrl = https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0&text=${encodedMessage};
             
             window.open(whatsappUrl, "_blank");
