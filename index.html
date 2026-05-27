@@ -410,7 +410,7 @@
 
     </div>
 
-    <a href="https://wa.me/93780889098" class="whatsapp-float" target="_blank">💬</a>
+    <a href="https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0" class="whatsapp-float" target="_blank">💬</a>
 
     <script>
         setInterval(() => {
@@ -432,14 +432,14 @@
                 return;
             }
 
-            // تنظیم دقیق ساختار متن پیام متنی فرم رزرو مسافر
+            // تنظیم ساختار متن فرم رزرو مسافر
             let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 محل دقیق سوار شدن یا توضیحات:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
 
-            // کدگذاری متن برای ارسال بدون مشکل در پروتکل استاندارد لینک واتساپ
+            // کدگذاری متن برای ارسال ایمن بدون تداخل ساختاری
             let encodedMessage = encodeURIComponent(message);
             
-            // ارسال مستقیم به شماره بیزینس شما همراه با اطلاعات کامل فرم متنی بدون علامت پلاس
-            let whatsappUrl = https://wa.me/93780889098?text=${encodedMessage};
+            // پیوند دادن اطلاعات فرم کدگذاری شده به انتهای لینک اختصاصی بیزینس شما
+            let whatsappUrl = https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0&text=${encodedMessage};
             
             window.open(whatsappUrl, "_blank");
         }
