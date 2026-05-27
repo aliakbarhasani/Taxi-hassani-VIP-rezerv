@@ -14,7 +14,6 @@
         body {
             margin: 0;
             padding: 0;
-            /* تم روشن، شاد و جوان‌پسند */
             background: linear-gradient(135deg, #e0f7fa, #fffaf0);
             font-family: tahoma, sans-serif;
             color: #1a3a3a;
@@ -99,7 +98,6 @@
             position: relative;
         }
 
-        /* خط جداکننده ضخیم و سفید بالای فرم برای عدم تداخل با تصویر */
         .form-box {
             padding: 30px;
             background: #ffffff;
@@ -115,31 +113,28 @@
             font-weight: bold;
         }
 
-        /* استایل جدید کادرها: پس‌زمینه سبز روشن ملایم و رنگ متن سیاه */
         input, select, textarea {
             width: 100%;
             padding: 16px;
             margin-bottom: 22px;
             border: 2px solid #b2dfdb;
             border-radius: 14px;
-            background-color: #e8f5e9; /* سبز روشن ملایم */
-            color: #000000; /* رنگ متن سیاه */
+            background-color: #e8f5e9;
+            color: #000000;
             box-sizing: border-box;
             font-size: 17px;
             font-weight: bold;
             transition: .3s;
         }
 
-        /* وقتی کاربر روی کادر کلیک میکند پس‌زمینه سفید خالص می‌شود */
         input:focus, select:focus, textarea:focus {
             outline: none;
             border: 2px solid #009688;
-            background-color: #ffffff; /* سفید خالص */
+            background-color: #ffffff;
             color: #000000;
             box-shadow: 0 0 12px rgba(0, 150, 136, 0.3);
         }
 
-        /* استایل متن پِلیس‌هولدر داخل کادرها */
         input::placeholder, textarea::placeholder {
             color: #757575;
             font-weight: normal;
@@ -378,8 +373,8 @@
             <div class="share-box">
                 <p>این سایت را با دوستان خود به اشتراک بگذارید:</p>
                 <div class="share-btns">
-                    <a href="https://api.whatsapp.com/send?text=%D8%A1%20%D8%B1%D8%B2%D8%B1%D9%85%20%D8%A2%D9%86%D9%84%D8%A7%DB%8C%D9%86%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20VIP%20%D8%AD%D8%B3%D9%86%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D8%B4%D9%87%D8%AF%20%D8%A8%D9%87%20%D8%Bای%D8%AA%20%D8%B2%D9%8A%D8%B1%20%D9%85%D8%B1%D8%A7%D8%AC%D8%B9%D9%87%20%DA%A9%D9%86%DB%8C%D8%AF%3A%20https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
-                    <a href="https://telegram.me/share/url?url=https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F&text=%D8%B1%D8%B2%D8%B1%D9%85%20%D8%A2%D9%86%D9%84%D8%A7%DB%8C%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20VIP%20%D8%AD%D8%B3%D9%86%DB%8C" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
+                    <a href="https://api.whatsapp.com/send?text=%D8%A1%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D8%B4%D9%87%D8%AF%20%D8%AD%D8%B3%D9%86%DB%8C%20%DA%A9%D9%84%DB%8C%DA%A9%20%DA%A9%D9%86%DB%8C%D8%AF%3A%20https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
+                    <a href="https://telegram.me/share/url?url=https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F&text=%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D8%B4%D9%87%D8%AF%20%D8%AD%D8%B3%D9%86%DB%8C%20%DA%A9%D9%84%DB%8C%DA%A9%20%DA%A9%D9%86%DB%8C%D8%AF" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
                 </div>
             </div>
         </div>
@@ -404,7 +399,7 @@
 
     </div>
 
-    <a href="https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0" class="whatsapp-float" target="_blank" onclick="copyFloatMessage()">💬</a>
+    <a href="https://wa.me/message/3YHT6E4WZFNLM1" class="whatsapp-float" target="_blank" onclick="copyFloatMessage()">💬</a>
 
     <script>
         setInterval(() => {
@@ -428,12 +423,13 @@
 
             let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 لوکیشن یا آدرس دقیق:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
 
+            // کپی هوشمند فرم و هدایت به آدرس جدید و لینک‌دار واتساپ بیزینس شما
             navigator.clipboard.writeText(message).then(() => {
-                alert("اطلاعات رزرو شما کپی شد! در صفحه بعد پیام را در چت واتساپ پیست (Paste) کنید.");
-                window.open("https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0", "_blank");
+                alert("اطلاعات رزرو شما کپی شد! در صفحه بعد پیام را در چت واتساپ بیزینس حسنی پیست (Paste) کنید.");
+                window.open("https://wa.me/message/3YHT6E4WZFNLM1", "_blank");
             }).catch(err => {
                 alert("در حال هدایت به واتساپ بیزینس حسنی...");
-                window.open("https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0", "_blank");
+                window.open("https://wa.me/message/3YHT6E4WZFNLM1", "_blank");
             });
         }
 
