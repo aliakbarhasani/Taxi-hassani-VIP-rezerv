@@ -2,552 +2,551 @@
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رزرو آنلاین تاکسی حسنی VIP</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+<title>رزرو آنلاین تاکسی حسنی VIP</title>
 
-        body {
-            margin: 0;
-            padding: 0;
-            background: radial-gradient(circle at center, #0d1b2a 0%, #010811 100%);
-            font-family: tahoma, sans-serif;
-            color: #e0e1dd;
-            min-height: 100vh;
-        }
+<script src="https://cdn.jsdelivr.net/npm/jalaali-js/dist/jalaali.min.js"></script>
 
-        .container {
-            width: 95%;
-            max-width: 540px;
-            margin: 40px auto;
-            background: rgba(13, 27, 42, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 30px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            box-shadow: 0 0 35px rgba(0, 242, 254, 0.15), inset 0 0 15px rgba(0, 242, 254, 0.05);
-            animation: show .8s ease;
-        }
+<style>
 
-        @keyframes show {
-            from { opacity: 0; transform: translateY(25px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .header {
-            padding: 40px 20px;
-            text-align: center;
-            background: linear-gradient(135deg, #00b4db, #0083b0);
-            color: white;
-            border-bottom: 3px solid #ffd700;
-            box-shadow: 0 4px 20px rgba(0, 180, 219, 0.3);
-        }
+body{
+    margin:0;
+    padding:0;
+    background:radial-gradient(circle at center,#0d1b2a 0%,#010811 100%);
+    font-family:tahoma,sans-serif;
+    color:#e0e1dd;
+    min-height:100vh;
+}
 
-        .logo {
-            width: 130px;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid #ffd700;
-            margin-bottom: 20px;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-            animation: pulse 2s infinite;
-        }
+.container{
+    width:95%;
+    max-width:540px;
+    margin:40px auto;
+    background:rgba(13,27,42,0.85);
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+    border-radius:30px;
+    overflow:hidden;
+    border:1px solid rgba(0,242,254,0.25);
+    box-shadow:0 0 35px rgba(0,242,254,0.15),
+               inset 0 0 15px rgba(0,242,254,0.05);
+    animation:show .8s ease;
+}
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
-            50% { transform: scale(1.03); box-shadow: 0 0 30px rgba(0, 242, 254, 0.6); }
-            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
-        }
+@keyframes show{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
 
-        .header h1 {
-            margin: 0;
-            color: #ffffff;
-            font-size: 34px;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-        }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-        .header p {
-            color: #ffffff;
-            margin-top: 12px;
-            line-height: 1.8;
-            font-size: 19px;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
+.header{
+    padding:40px 20px;
+    text-align:center;
+    background:linear-gradient(135deg,#00b4db,#0083b0);
+    color:white;
+    border-bottom:3px solid #ffd700;
+    box-shadow:0 4px 20px rgba(0,180,219,0.3);
+}
 
-        /* باکس اطلاعات زمان کابل و خوش‌آمدگویی بالای ماشین */
-        .kabul-time-box {
-            background: rgba(0, 0, 0, 0.4);
-            border-top: 1px solid rgba(0, 242, 254, 0.2);
-            border-bottom: 1px solid rgba(0, 242, 254, 0.2);
-            padding: 15px;
-            text-align: center;
-        }
+.logo{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid #ffd700;
+    margin-bottom:20px;
+    box-shadow:0 0 25px rgba(255,215,0,0.4);
+    animation:pulse 2s infinite;
+}
 
-        .welcome-msg {
-            font-size: 16px;
-            color: #ffd700;
-            font-weight: bold;
-            margin-bottom: 8px;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
-        }
+@keyframes pulse{
 
-        .time-row {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            font-size: 15px;
-            color: #e0e1dd;
-        }
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 20px rgba(255,215,0,0.4);
+    }
 
-        .time-badge {
-            background: rgba(0, 180, 219, 0.15);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 4px 12px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
+    50%{
+        transform:scale(1.03);
+        box-shadow:0 0 30px rgba(0,242,254,0.6);
+    }
 
-        .time-badge span {
-            color: #00f2fe;
-        }
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 20px rgba(255,215,0,0.4);
+    }
 
-        .car {
-            width: 100%;
-            height: 280px;
-            background: url('logo.png') center/cover no-repeat;
-            position: relative;
-            box-shadow: inset 0 -50px 50px rgba(1, 8, 17, 0.9), inset 0 50px 50px rgba(1, 8, 17, 0.9);
-            filter: drop-shadow(0px 0px 15px rgba(0, 242, 254, 0.3));
-        }
+}
 
-        .form-box {
-            padding: 30px;
-            background: rgba(15, 32, 67, 0.5);
-            border-top: 4px solid #00f2fe;
-            box-shadow: inset 0 10px 20px rgba(0, 242, 254, 0.05);
-            position: relative;
-        }
+.header h1{
+    margin:0;
+    color:#ffffff;
+    font-size:34px;
+    font-weight:bold;
+}
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #00f2fe;
-            font-size: 16px;
-            font-weight: bold;
-            text-shadow: 0 0 5px rgba(0, 242, 254, 0.2);
-        }
+.header p{
+    color:#ffffff;
+    margin-top:12px;
+    line-height:1.8;
+    font-size:19px;
+    font-weight:bold;
+}
 
-        input, select, textarea {
-            width: 100%;
-            padding: 16px;
-            margin-bottom: 22px;
-            border: 2px solid #00b4db;
-            border-radius: 14px;
-            background-color: #e8f5e9;
-            color: #000000;
-            box-sizing: border-box;
-            font-size: 17px;
-            font-weight: bold;
-            transition: .3s;
-        }
+.date-box{
+    text-align:center;
+    padding:18px 10px;
+    background:linear-gradient(135deg,#09121f,#10243f);
+    border-top:2px solid rgba(0,242,254,0.2);
+    border-bottom:2px solid rgba(0,242,254,0.2);
+    color:#ffd700;
+    line-height:2;
+}
 
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border: 2px solid #ffd700;
-            background-color: #ffffff;
-            color: #000000;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
-        }
+#persianDate{
+    font-size:20px;
+    font-weight:bold;
+    text-shadow:0 0 12px rgba(255,215,0,0.5);
+}
 
-        input::placeholder, textarea::placeholder {
-            color: #666666;
-            font-weight: normal;
-        }
+#clock{
+    font-size:24px;
+    color:#00f2fe;
+    font-weight:bold;
+    margin-top:5px;
+}
 
-        select option {
-            background: #ffffff;
-            color: #000000;
-        }
+.car{
+    width:100%;
+    height:280px;
+    background:url('logo.png') center/cover no-repeat;
+    position:relative;
+    box-shadow:inset 0 -50px 50px rgba(1,8,17,0.9),
+               inset 0 50px 50px rgba(1,8,17,0.9);
+    filter:drop-shadow(0px 0px 15px rgba(0,242,254,0.3));
+}
 
-        textarea {
-            resize: none;
-        }
+.form-box{
+    padding:30px;
+    background:rgba(15,32,67,0.5);
+    border-top:4px solid #00f2fe;
+}
 
-        .date-shamsi-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 22px;
-        }
+label{
+    display:block;
+    margin-bottom:8px;
+    color:#00f2fe;
+    font-size:16px;
+    font-weight:bold;
+}
 
-        .date-shamsi-group select {
-            margin-bottom: 0;
-            flex: 1;
-            padding: 16px 8px;
-            font-size: 16px;
-        }
+input,
+select,
+textarea{
+    width:100%;
+    padding:16px;
+    margin-bottom:22px;
+    border:2px solid #00b4db;
+    border-radius:14px;
+    background-color:#e8f5e9;
+    color:#000;
+    box-sizing:border-box;
+    font-size:17px;
+    font-weight:bold;
+    transition:.3s;
+}
 
-        .btn {
-            width: 100%;
-            background: linear-gradient(135deg, #00f2fe, #0072ff);
-            color: white;
-            border: none;
-            padding: 18px;
-            border-radius: 16px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            margin-top: 10px;
-        }
+input:focus,
+select:focus,
+textarea:focus{
+    outline:none;
+    border:2px solid #ffd700;
+    background-color:#ffffff;
+    box-shadow:0 0 15px rgba(255,215,0,0.4);
+}
 
-        .btn:hover {
-            background: linear-gradient(135deg, #0072ff, #00f2fe);
-            box-shadow: 0 0 30px rgba(0, 242, 254, 0.7);
-            transform: translateY(-2px);
-        }
+textarea{
+    resize:none;
+}
 
-        .info {
-            padding: 30px 20px;
-            border-top: 2px solid rgba(0, 242, 254, 0.2);
-            text-align: center;
-            background: #0b132b;
-            font-size: 18px;
-            font-weight: bold;
-            color: #e0e1dd;
-        }
+.btn{
+    width:100%;
+    background:linear-gradient(135deg,#00f2fe,#0072ff);
+    color:white;
+    border:none;
+    padding:18px;
+    border-radius:16px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 20px rgba(0,242,254,0.4);
+}
 
-        .number {
-            font-size: 24px;
-            color: #ffd700;
-            font-weight: bold;
-            margin-top: 6px;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-        }
+.btn:hover{
+    background:linear-gradient(135deg,#0072ff,#00f2fe);
+    box-shadow:0 0 30px rgba(0,242,254,0.7);
+}
 
-        .social-box {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
+.info{
+    padding:30px 20px;
+    text-align:center;
+    background:#0b132b;
+    font-size:18px;
+    font-weight:bold;
+}
 
-        .call-btn, .tg-btn {
-            flex: 1;
-            padding: 14px 20px;
-            text-decoration: none;
-            border-radius: 14px;
-            font-size: 16px;
-            font-weight: bold;
-            transition: .3s;
-            text-align: center;
-        }
+.number{
+    font-size:24px;
+    color:#ffd700;
+    font-weight:bold;
+    margin-top:6px;
+    margin-bottom:15px;
+}
 
-        .call-btn {
-            background: rgba(0, 180, 219, 0.1);
-            color: #00f2fe;
-            border: 1px solid #00b4db;
-        }
+.social-box{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:15px;
+    margin-bottom:15px;
+}
 
-        .call-btn:hover {
-            background: #00b4db;
-            color: white;
-            box-shadow: 0 0 15px rgba(0, 180, 219, 0.4);
-        }
+.call-btn,
+.tg-btn{
+    flex:1;
+    padding:14px 20px;
+    text-decoration:none;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:bold;
+    transition:.3s;
+    text-align:center;
+}
 
-        .tg-btn {
-            background: rgba(2, 136, 209, 0.1);
-            color: #29b6f6;
-            border: 1px solid #0288d1;
-        }
+.call-btn{
+    background:rgba(0,180,219,0.1);
+    color:#00f2fe;
+    border:1px solid #00b4db;
+}
 
-        .tg-btn:hover {
-            background: #0288d1;
-            color: white;
-            box-shadow: 0 0 15px rgba(2, 136, 209, 0.4);
-        }
+.call-btn:hover{
+    background:#00b4db;
+    color:white;
+}
 
-        .site-btn {
-            display: inline-block;
-            width: 80%;
-            padding: 14px 20px;
-            background: linear-gradient(135deg, #1c2541, #3a506b);
-            color: #ffd700;
-            border: 1px solid rgba(255, 215, 0, 0.3);
-            text-decoration: none;
-            border-radius: 14px;
-            font-size: 17px;
-            font-weight: bold;
-            transition: .3s;
-            text-align: center;
-            box-sizing: border-box;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
+.tg-btn{
+    background:rgba(2,136,209,0.1);
+    color:#29b6f6;
+    border:1px solid #0288d1;
+}
 
-        .site-btn:hover {
-            background: #ffd700;
-            color: #010811;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-        }
+.tg-btn:hover{
+    background:#0288d1;
+    color:white;
+}
 
-        .share-box {
-            margin-top: 25px;
-            padding: 15px;
-            background: rgba(1, 8, 17, 0.5);
-            border-radius: 14px;
-            border: 1px solid rgba(0, 242, 254, 0.15);
-        }
+.site-btn{
+    display:inline-block;
+    width:80%;
+    padding:14px 20px;
+    background:linear-gradient(135deg,#1c2541,#3a506b);
+    color:#ffd700;
+    border:1px solid rgba(255,215,0,0.3);
+    text-decoration:none;
+    border-radius:14px;
+    font-size:17px;
+    font-weight:bold;
+}
 
-        .share-box p {
-            margin: 0 0 12px 0;
-            font-size: 15px;
-            color: #a5a5a5;
-        }
+.footer{
+    text-align:center;
+    color:#8d99ae;
+    font-size:15px;
+    margin-top:25px;
+    line-height:1.8;
+}
 
-        .share-btns {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-        }
+.whatsapp-float{
+    position:fixed;
+    bottom:25px;
+    left:25px;
+    width:65px;
+    height:65px;
+    background:#4caf50;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    text-decoration:none;
+    color:white;
+    box-shadow:0 0 20px rgba(76,175,80,0.5);
+    z-index:999;
+}
 
-        .share-link {
-            flex: 1;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            transition: 0.3s;
-            text-align: center;
-        }
+</style>
 
-        .share-wa { background: rgba(76, 175, 80, 0.1); border: 1px solid #4caf50; color: #4caf50; }
-        .share-tg { background: rgba(3, 169, 244, 0.1); border: 1px solid #03a9f4; color: #03a9f4; }
-        .share-wa:hover { background: #4caf50; color: white; }
-        .share-tg:hover { background: #03a9f4; color: white; }
-
-        .footer {
-            text-align: center;
-            color: #8d99ae;
-            font-size: 15px;
-            margin-top: 25px;
-            line-height: 1.8;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 65px;
-            height: 65px;
-            background: #4caf50;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            text-decoration: none;
-            color: white;
-            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
-            z-index: 999;
-            transition: .3s;
-        }
-
-        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 0 30px rgba(76, 175, 80, 0.8); }
-    </style>
 </head>
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="header">
-            <img src="logo.png" class="logo">
-            <h1>تاکسی VIP حسنی</h1>
-            <p>سفر راحت، سریع و مطمئن<br>هرات ← مشهد</p>
-        </div>
+<div class="header">
 
-        <div class="kabul-time-box">
-            <div class="welcome-msg">✨ مسافران گرامی، به سیستم رزرو آنلاین خوش آمدید ✨</div>
-            <div class="time-row">
-                <div class="time-badge">🕒 ساعت کابل: <span id="kabulClock">00:00:00</span></div>
-                <div class="time-badge">📅 امروز: <span id="kabulDate">-- / -- / --</span></div>
-            </div>
-        </div>
+<img src="logo.png" class="logo">
 
-        <div class="car"></div>
+<h1>تاکسی VIP حسنی</h1>
 
-        <div class="form-box">
-            <label>نام و نام خانوادگی</label>
-            <input type="text" id="name" placeholder="نام کامل شما">
+<p>
+سفر راحت، سریع و مطمئن
+<br>
+هرات ← مشهد
+</p>
 
-            <label>شماره تماس</label>
-            <input type="tel" id="phone" placeholder="0780xxxxxx">
+</div>
 
-            <label>مسیر سفر</label>
-            <select id="route">
-                <option value="هرات-مشهد">هرات ← مشهد</option>
-                <option value="مشهد-هرات">مشهد ← هرات</option>
-            </select>
+<div class="date-box">
 
-            <label>تعداد مسافر</label>
-            <select id="passengers">
-                <option value="1">1 نفر</option>
-                <option value="2">2 نفر</option>
-                <option value="3">3 نفر</option>
-                <option value="4">4 نفر</option>
-            </select>
+<div id="persianDate"></div>
 
-            <label>نوع خودرو</label>
-            <select id="carType">
-                <option value="معمولی">VIP معمولی</option>
-                <option value="لوکس">VIP لوکس</option>
-                <option value="ون">ون خانوادگی</option>
-            </select>
+<div id="clock"></div>
 
-            <label>تاریخ حرکت (شمسی)</label>
-            <div class="date-shamsi-group">
-                <select id="shamsiYear">
-                    <option value="1405">1405</option>
-                    <option value="1406">1406</option>
-                    <option value="1407">1407</option>
-                </select>
-                <select id="shamsiMonth">
-                    <option value="01">فروردین</option>
-                    <option value="02">اردیبهشت</option>
-                    <option value="03">خرداد</option>
-                    <option value="04">تیر</option>
-                    <option value="05">مرداد</option>
-                    <option value="06">شهریور</option>
-                    <option value="07">مهر</option>
-                    <option value="08">آبان</option>
-                    <option value="09">آذر</option>
-                    <option value="10">دی</option>
-                    <option value="11">بهمن</option>
-                    <option value="12">اسفند</option>
-                </select>
-                <select id="shamsiDay">
-                    <option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option value="08">8</option><option value="09">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>
-                </select>
-            </div>
+</div>
 
-            <label>محل دقیق برای سوار شدن از آدرس و یا لوکیشن</label>
-            <textarea id="address" rows="3" placeholder="بخش توضیحات ویا ادرس دقیق یا لینک نقشه گوگل مپس مسافر"></textarea>
+<div class="car"></div>
 
-            <button class="btn" onclick="sendToWhatsApp()">ثبت رزرو در واتساپ</button>
+<div class="form-box">
 
-            <div class="share-box">
-                <p>این سایت را با دوستان خود به اشتراک بگذارید:</p>
-                <div class="share-btns">
-                    <a href="https://api.whatsapp.com/send?text=%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D9%8B%D9%87%D8%AF%20%D8%AD%D8%B3%D9%86%DB%8C%20%DA%A9%D9%84%DB%8C%DA%A9%20%DA%A9%D9%86%DB%8C%D8%AF%3A%20https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
-                    <a href="https://telegram.me/share/url?url=https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F&text=%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D8%B4%D9%87%D8%AF%20%D8%AD%D8%B3%D9%86%DB%8C%20%DA%A9%D9%84%DB%8C%DA%A9%20%DA%A9%D9%86%DB%8C%D8%AF" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
-                </div>
-            </div>
-        </div>
+<label>نام و نام خانوادگی</label>
+<input type="text" id="name" placeholder="نام کامل شما">
 
-        <div class="info">
-            افغانستان 🇦🇫
-            <div class="number">0780889098</div>
-            ایران 🇮🇷
-            <div class="number">09351023670</div>
+<label>شماره تماس</label>
+<input type="tel" id="phone" placeholder="0780xxxxxx">
 
-            <div class="social-box">
-                <a href="tel:+93780889098" class="call-btn">📞 تماس مستقیم</a>
-                <a href="https://t.me/ALIAKBAR_HASSANI" target="_blank" class="tg-btn">✈️ پیام در تلگرام</a>
-            </div>
-            
-            <a href="https://sites.google.com/view/taxi-herat-mashhad-hassani" target="_blank" class="site-btn">🌐 ورود به سایت رسمی</a>
+<label>مسیر سفر</label>
 
-            <div class="footer">
-                تاکسی بین‌المللی هرات مشهد حسنی<br>سفر ایمن، سریع و VIP بین هرات و مشهد
-            </div>
-        </div>
+<select id="route">
+<option value="هرات-مشهد">هرات ← مشهد</option>
+<option value="مشهد-هرات">مشهد ← هرات</option>
+</select>
 
-    </div>
+<label>تعداد مسافر</label>
 
-    <a href="https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0" class="whatsapp-float" target="_blank">💬</a>
+<select id="passengers">
+<option value="1">1 نفر</option>
+<option value="2">2 نفر</option>
+<option value="3">3 نفر</option>
+<option value="4">4 نفر</option>
+</select>
 
-    <script>
-        // تابع تبدیل تاریخ میلادی سیستم به شمسی جهت مقداردهی خودکار منوها و ساعت کابل
-        function getKabulShamsiDetails() {
-            let options = { timeZone: 'Asia/Kabul', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
-            let formatter = new Intl.DateTimeFormat('fa-IR', options);
-            let parts = formatter.formatToParts(new Date());
-            
-            let details = {};
-            parts.forEach(p => { details[p.type] = p.value; });
-            return details;
-        }
+<label>نوع خودرو</label>
 
-        // انگلیسی کردن اعداد فارسی برای استفاده در کدهای برنامه نویسی
-        function convertFaToEn(str) {
-            return str.replace(/[٠-٩]/g, d => d.charCodeAt(0) - 1632).replace(/[۰-۹]/g, d => d.charCodeAt(0) - 1776);
-        }
+<select id="carType">
+<option value="معمولی">VIP معمولی</option>
+<option value="لوکس">VIP لوکس</option>
+<option value="ون">ون خانوادگی</option>
+</select>
 
-        // بروزرسانی زنده ساعت کابل و تنظیم تاریخ بالای صفحه
-        function updateKabulTime() {
-            let d = getKabulShamsiDetails();
-            
-            // نمایش ثانیه‌شمار زنده
-            document.getElementById("kabulClock").innerHTML = ${d.hour}:${d.minute}:${d.second};
-            
-            // نمایش تاریخ بالای صفحه
-            document.getElementById("kabulDate").innerHTML = ${d.year}/${d.month}/${d.day};
-        }
+<label>تاریخ حرکت</label>
 
-        // مقداردهی اتوماتیک منوهای کشویی فرم بر اساس تاریخ امروز شمسی کابل
-        function setAutomaticDropdowns() {
-            let d = getKabulShamsiDetails();
-            let enYear = convertFaToEn(d.year).trim();
-            let enMonth = convertFaToEn(d.month).padStart(2, '0');
-            let enDay = convertFaToEn(d.day).padStart(2, '0');
+<input type="text" id="date" placeholder="مثلاً ۱۴۰۵/۰۳/۰۶">
 
-            if(document.getElementById("shamsiYear").querySelector(option[value="${enYear}"])) {
-                document.getElementById("shamsiYear").value = enYear;
-            }
-            document.getElementById("shamsiMonth").value = enMonth;
-            document.getElementById("shamsiDay").value = enDay;
-        }
+<label>محل دقیق سوار شدن</label>
 
-        // اجرای توابع در زمان لود اولیه صفحه
-        setInterval(updateKabulTime, 1000);
-        updateKabulTime();
-        setAutomaticDropdowns();
+<textarea id="address" rows="3"
+placeholder="آدرس دقیق یا لینک نقشه"></textarea>
 
-        function sendToWhatsApp() {
-            let name = document.getElementById("name").value || 'ثبت نشده';
-            let phone = document.getElementById("phone").value || 'ثبت نشده';
-            let route = document.getElementById("route").value;
-            let passengers = document.getElementById("passengers").value;
-            let carType = document.getElementById("carType").value;
-            let address = document.getElementById("address").value || 'ثبت نشده';
+<button class="btn"
+onclick="sendToWhatsApp()">
+ثبت رزرو در واتساپ
+</button>
 
-            // دریافت مقادیر (که به صورت پیش‌فرض امروز هستند یا توسط کاربر تغییر کرده‌اند)
-            let year = document.getElementById("shamsiYear").value;
-            let month = document.getElementById("shamsiMonth").value;
-            let day = document.getElementById("shamsiDay").value;
-            let shamsiDate = ${year}/${month}/${day};
+</div>
 
-            let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${shamsiDate}\n\n📍 محل دقیق سوار شدن یا توضیحات:\n${address}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
+<div class="info">
 
-            let encodedMessage = encodeURIComponent(message);
-            let whatsappUrl = https://api.whatsapp.com/message/3YHT6E4WZFNLM1?autoload=1&app_absent=0&text=${encodedMessage};
-            
-            window.open(whatsappUrl, "_blank");
-        }
-    </script>
+افغانستان 🇦🇫
+
+<div class="number">
+0780889098
+</div>
+
+ایران 🇮🇷
+
+<div class="number">
+09351023670
+</div>
+
+<div class="social-box">
+
+<a href="tel:+93780889098"
+class="call-btn">
+📞 تماس مستقیم
+</a>
+
+<a href="https://t.me/ALIAKBAR_HASSANI"
+target="_blank"
+class="tg-btn">
+✈️ پیام در تلگرام
+</a>
+
+</div>
+
+<a href="https://sites.google.com/view/taxi-herat-mashhad-hassani"
+target="_blank"
+class="site-btn">
+🌐 ورود به سایت رسمی
+</a>
+
+<div class="footer">
+
+تاکسی بین‌المللی هرات مشهد حسنی
+
+<br>
+
+سفر ایمن، سریع و VIP بین هرات و مشهد
+
+</div>
+
+</div>
+
+</div>
+
+<a href="https://wa.me/message/3YHT6E4WZFNLM1"
+class="whatsapp-float"
+target="_blank">
+💬
+</a>
+
+<script>
+
+function updatePersianDate(){
+
+    const now = new Date();
+
+    const gy = now.getFullYear();
+    const gm = now.getMonth() + 1;
+    const gd = now.getDate();
+
+    const j = jalaali.toJalaali(gy,gm,gd);
+
+    const months = [
+        "فروردین","اردیبهشت","خرداد",
+        "تیر","مرداد","شهریور",
+        "مهر","آبان","آذر",
+        "دی","بهمن","اسفند"
+    ];
+
+    const days = [
+        "یکشنبه",
+        "دوشنبه",
+        "سه‌شنبه",
+        "چهارشنبه",
+        "پنجشنبه",
+        "جمعه",
+        "شنبه"
+    ];
+
+    document.getElementById("persianDate").innerHTML =
+        days[now.getDay()] + " "
+        + j.jd + " "
+        + months[j.jm - 1] + " "
+        + j.jy;
+
+    document.getElementById("clock").innerHTML =
+        now.toLocaleTimeString("fa-IR");
+
+}
+
+setInterval(updatePersianDate,1000);
+
+updatePersianDate();
+
+
+
+function sendToWhatsApp(){
+
+    let name =
+        document.getElementById("name").value
+        || "ثبت نشده";
+
+    let phone =
+        document.getElementById("phone").value
+        || "ثبت نشده";
+
+    let route =
+        document.getElementById("route").value;
+
+    let passengers =
+        document.getElementById("passengers").value;
+
+    let carType =
+        document.getElementById("carType").value;
+
+    let date =
+        document.getElementById("date").value
+        || "ثبت نشده";
+
+    let address =
+        document.getElementById("address").value
+        || "ثبت نشده";
+
+
+
+    let message =
+
+`✨ رزرو جدید تاکسی VIP
+
+👤 نام:
+${name}
+
+📞 شماره تماس:
+${phone}
+
+🗺️ مسیر:
+${route}
+
+👥 تعداد مسافر:
+${passengers} نفر
+
+🚗 نوع خودرو:
+VIP ${carType}
+
+📅 تاریخ حرکت:
+${date}
+
+📍 آدرس:
+${address}
+
+🌐 سایت رسمی:
+https://sites.google.com/view/taxi-herat-mashhad-hassani`;
+
+
+
+    let whatsappUrl =
+https://wa.me/93780889098?text=${encodeURIComponent(message)};
+
+
+
+    window.open(whatsappUrl,"_blank");
+
+}
+
+</script>
 
 </body>
 </html>
