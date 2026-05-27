@@ -376,8 +376,8 @@
             <label>تاریخ حرکت</label>
             <input type="date" id="date">
 
-            <label>محل دقیق سوار شدن (لوکیشن / آدرس)</label>
-            <textarea id="address" rows="3" placeholder="آدرس دقیق یا لینک نقشه گوگل مپ..."></textarea>
+            <label>محل دقیق برای سوار شدن از آدرس و یا لوکیشن</label>
+            <textarea id="address" rows="3" placeholder="بخش توضیحات ویا ادرس دقیق یا لینک نقشه گوگل مپس مسافر"></textarea>
 
             <button class="btn" onclick="sendToWhatsApp()">ثبت رزرو در واتساپ</button>
 
@@ -410,7 +410,7 @@
 
     </div>
 
-    <a href="https://wa.me/message/3YHT6E4WZFNLM1" class="whatsapp-float" target="_blank">💬</a>
+    <a href="https://wa.me/93780889098" class="whatsapp-float" target="_blank">💬</a>
 
     <script>
         setInterval(() => {
@@ -433,12 +433,12 @@
             }
 
             // تنظیم دقیق ساختار متن پیام متنی فرم رزرو مسافر
-            let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 لوکیشن یا آدرس دقیق:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
+            let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 محل دقیق سوار شدن یا توضیحات:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
 
             // کدگذاری متن برای ارسال بدون مشکل در پروتکل استاندارد لینک واتساپ
             let encodedMessage = encodeURIComponent(message);
             
-            // ارسال مستقیم به شماره بیزینس شما همراه با اطلاعات کامل فرم متنی
+            // ارسال مستقیم به شماره بیزینس شما همراه با اطلاعات کامل فرم متنی بدون علامت پلاس
             let whatsappUrl = https://wa.me/93780889098?text=${encodedMessage};
             
             window.open(whatsappUrl, "_blank");
