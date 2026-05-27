@@ -14,9 +14,9 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #e0f7fa, #fffaf0);
+            background: radial-gradient(circle at center, #0d1b2a 0%, #010811 100%);
             font-family: tahoma, sans-serif;
-            color: #1a3a3a;
+            color: #e0e1dd;
             min-height: 100vh;
         }
 
@@ -24,13 +24,13 @@
             width: 95%;
             max-width: 540px;
             margin: 40px auto;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            background: rgba(13, 27, 42, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 30px;
             overflow: hidden;
-            border: 1px solid rgba(0, 150, 136, 0.2);
-            box-shadow: 0 15px 35px rgba(0, 150, 136, 0.15);
+            border: 1px solid rgba(0, 242, 254, 0.25);
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.15), inset 0 0 15px rgba(0, 242, 254, 0.05);
             animation: show .8s ease;
         }
 
@@ -42,9 +42,10 @@
         .header {
             padding: 40px 20px;
             text-align: center;
-            background: linear-gradient(to bottom, #009688, #00796b);
+            background: linear-gradient(135deg, #00b4db, #0083b0);
             color: white;
-            border-bottom: 2px solid #004d40;
+            border-bottom: 3px solid #ffd700;
+            box-shadow: 0 4px 20px rgba(0, 180, 219, 0.3);
         }
 
         .logo {
@@ -52,16 +53,16 @@
             height: 130px;
             object-fit: cover;
             border-radius: 50%;
-            border: 4px solid #fff;
+            border: 4px solid #ffd700;
             margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 0 30px rgba(0, 242, 254, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 0 20px rgba(255, 215, 0, 0.4); }
         }
 
         .header h1 {
@@ -69,55 +70,62 @@
             color: #ffffff;
             font-size: 34px;
             font-weight: bold;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         .header p {
-            color: #e0f2f1;
+            color: #ffffff;
             margin-top: 12px;
             line-height: 1.8;
             font-size: 19px;
             font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         #clock {
             margin-top: 15px;
             font-size: 18px;
-            color: #ffd54f;
+            color: #ffd700;
             font-weight: bold;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.3);
             display: inline-block;
-            padding: 4px 15px;
+            padding: 6px 20px;
             border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
         }
 
         .car {
             width: 100%;
-            height: 260px;
+            height: 280px;
             background: url('logo.png') center/cover no-repeat;
             position: relative;
+            box-shadow: inset 0 -50px 50px rgba(1, 8, 17, 0.9), inset 0 50px 50px rgba(1, 8, 17, 0.9);
+            filter: drop-shadow(0px 0px 15px rgba(0, 242, 254, 0.3));
         }
 
         .form-box {
             padding: 30px;
-            background: #ffffff;
-            border-top: 5px solid #009688;
+            background: rgba(15, 32, 67, 0.5);
+            border-top: 4px solid #00f2fe;
+            box-shadow: inset 0 10px 20px rgba(0, 242, 254, 0.05);
             position: relative;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
-            color: #004d40;
+            color: #00f2fe;
             font-size: 16px;
             font-weight: bold;
+            text-shadow: 0 0 5px rgba(0, 242, 254, 0.2);
         }
 
         input, select, textarea {
             width: 100%;
             padding: 16px;
             margin-bottom: 22px;
-            border: 2px solid #b2dfdb;
+            border: 2px solid #00b4db;
             border-radius: 14px;
             background-color: #e8f5e9;
             color: #000000;
@@ -129,14 +137,14 @@
 
         input:focus, select:focus, textarea:focus {
             outline: none;
-            border: 2px solid #009688;
+            border: 2px solid #ffd700;
             background-color: #ffffff;
             color: #000000;
-            box-shadow: 0 0 12px rgba(0, 150, 136, 0.3);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
         }
 
         input::placeholder, textarea::placeholder {
-            color: #757575;
+            color: #666666;
             font-weight: normal;
         }
 
@@ -151,7 +159,7 @@
 
         .btn {
             width: 100%;
-            background: linear-gradient(135deg, #00cbaf, #009688);
+            background: linear-gradient(135deg, #00f2fe, #0072ff);
             color: white;
             border: none;
             padding: 18px;
@@ -160,33 +168,35 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.3s;
-            box-shadow: 0 6px 15px rgba(0, 150, 136, 0.3);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.4);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
             margin-top: 10px;
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #009688, #00796b);
-            box-shadow: 0 8px 22px rgba(0, 150, 136, 0.4);
+            background: linear-gradient(135deg, #0072ff, #00f2fe);
+            box-shadow: 0 0 30px rgba(0, 242, 254, 0.7);
             transform: translateY(-2px);
         }
 
         .info {
             padding: 30px 20px;
-            border-top: 1px solid #e0e0e0;
+            border-top: 2px solid rgba(0, 242, 254, 0.2);
             text-align: center;
-            background: #f9f9f9;
+            background: #0b132b;
             font-size: 18px;
             font-weight: bold;
-            color: #333;
+            color: #e0e1dd;
         }
 
         .number {
-            font-size: 22px;
-            color: #00796b;
+            font-size: 24px;
+            color: #ffd700;
             font-weight: bold;
             margin-top: 6px;
             margin-bottom: 15px;
             letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
         }
 
         .social-box {
@@ -209,36 +219,36 @@
         }
 
         .call-btn {
-            background: #e0f2f1;
-            color: #00796b;
-            border: 1px solid #b2dfdb;
+            background: rgba(0, 180, 219, 0.1);
+            color: #00f2fe;
+            border: 1px solid #00b4db;
         }
 
         .call-btn:hover {
-            background: #00796b;
+            background: #00b4db;
             color: white;
-            box-shadow: 0 5px 15px rgba(0,121,107,0.2);
+            box-shadow: 0 0 15px rgba(0, 180, 219, 0.4);
         }
 
         .tg-btn {
-            background: #e1f5fe;
-            color: #0288d1;
-            border: 1px solid #b3e5fc;
+            background: rgba(2, 136, 209, 0.1);
+            color: #29b6f6;
+            border: 1px solid #0288d1;
         }
 
         .tg-btn:hover {
             background: #0288d1;
             color: white;
-            box-shadow: 0 5px 15px rgba(2,136,209,0.2);
+            box-shadow: 0 0 15px rgba(2, 136, 209, 0.4);
         }
 
         .site-btn {
             display: inline-block;
             width: 80%;
             padding: 14px 20px;
-            background: #78909c;
-            color: white;
-            border: none;
+            background: linear-gradient(135deg, #1c2541, #3a506b);
+            color: #ffd700;
+            border: 1px solid rgba(255, 215, 0, 0.3);
             text-decoration: none;
             border-radius: 14px;
             font-size: 17px;
@@ -246,26 +256,27 @@
             transition: .3s;
             text-align: center;
             box-sizing: border-box;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
         .site-btn:hover {
-            background: #455a64;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            background: #ffd700;
+            color: #010811;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
         }
 
         .share-box {
             margin-top: 25px;
             padding: 15px;
-            background: #f5f5f5;
+            background: rgba(1, 8, 17, 0.5);
             border-radius: 14px;
-            border: 1px solid #e0e0e0;
+            border: 1px solid rgba(0, 242, 254, 0.15);
         }
 
         .share-box p {
             margin: 0 0 12px 0;
             font-size: 15px;
-            color: #616161;
+            color: #a5a5a5;
         }
 
         .share-btns {
@@ -285,14 +296,14 @@
             text-align: center;
         }
 
-        .share-wa { background: #e8f5e9; border: 1px solid #4caf50; color: #2e7d32; }
-        .share-tg { background: #e1f5fe; border: 1px solid #03a9f4; color: #0277bd; }
+        .share-wa { background: rgba(76, 175, 80, 0.1); border: 1px solid #4caf50; color: #4caf50; }
+        .share-tg { background: rgba(3, 169, 244, 0.1); border: 1px solid #03a9f4; color: #03a9f4; }
         .share-wa:hover { background: #4caf50; color: white; }
         .share-tg:hover { background: #03a9f4; color: white; }
 
         .footer {
             text-align: center;
-            color: #757575;
+            color: #8d99ae;
             font-size: 15px;
             margin-top: 25px;
             line-height: 1.8;
@@ -312,12 +323,12 @@
             font-size: 32px;
             text-decoration: none;
             color: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
             z-index: 999;
             transition: .3s;
         }
 
-        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); box-shadow: 0 0 30px rgba(76, 175, 80, 0.8); }
     </style>
 </head>
 
@@ -373,7 +384,7 @@
             <div class="share-box">
                 <p>این سایت را با دوستان خود به اشتراک بگذارید:</p>
                 <div class="share-btns">
-                    <a href="https://api.whatsapp.com/send?text=%D8%A1%20%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D8%B4%D9%87%D8%AF%20%D8%AD%D8%B3%D9%86%DB%8C%20%DA%A9%D9%84%DB%8C%DA%A9%20%DA%A9%D9%86%DB%8C%D8%AF%3A%20https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
+                    <a href="https://api.whatsapp.com/send?text=%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D9%8B%D9%87%D8%AF%20%D8%AD%D8%B3%D9%86%DB%8C%20%DA%A9%D9%84%DB%8C%DA%A9%20%DA%A9%D9%86%DB%8C%D8%AF%3A%20https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F" target="_blank" class="share-link share-wa">اشتراک در واتساپ</a>
                     <a href="https://telegram.me/share/url?url=https%3A%2F%2Fvip-taxi-herat-mashhad-hassani.netlify.app%2F&text=%D8%A8%D8%B1%D8%A7%DB%8C%20%D8%B1%D8%B2%D8%B1%D9%88%20%D8%AA%D8%A7%DA%A9%D8%B3%DB%8C%20%D9%87%D8%B1%D8%A7%D8%AA%20%D9%85%D8%B4%D9%87%D8%AF%20%D8%AD%D8%B3%D9%86%DB%8C%20%DA%A9%D9%84%DB%8C%DA%A9%20%DA%A9%D9%86%DB%8C%D8%AF" target="_blank" class="share-link share-tg">اشتراک در تلگرام</a>
                 </div>
             </div>
@@ -399,7 +410,7 @@
 
     </div>
 
-    <a href="https://wa.me/message/3YHT6E4WZFNLM1" class="whatsapp-float" target="_blank" onclick="copyFloatMessage()">💬</a>
+    <a href="https://wa.me/message/3YHT6E4WZFNLM1" class="whatsapp-float" target="_blank">💬</a>
 
     <script>
         setInterval(() => {
@@ -421,21 +432,16 @@
                 return;
             }
 
+            // تنظیم دقیق ساختار متن پیام متنی فرم رزرو مسافر
             let message = ✨ رزرو جدید تاکسی VIP\n\n👤 نام:\n${name}\n\n📞 شماره تماس:\n${phone}\n\n🗺️ مسیر:\n${route === 'هرات-مشهد' ? 'هرات ← مشهد' : 'مشهد ← هرات'}\n\n👥 تعداد مسافر:\n${passengers} نفر\n\n🚗 نوع خودرو:\nVIP ${carType}\n\n📅 تاریخ حرکت:\n${date}\n\n📍 لوکیشن یا آدرس دقیق:\n${address || 'ثبت نشده'}\n\n🌐 سایت رسمی:\nhttps://sites.google.com/view/taxi-herat-mashhad-hassani;
 
-            // کپی هوشمند فرم و هدایت به آدرس جدید و لینک‌دار واتساپ بیزینس شما
-            navigator.clipboard.writeText(message).then(() => {
-                alert("اطلاعات رزرو شما کپی شد! در صفحه بعد پیام را در چت واتساپ بیزینس حسنی پیست (Paste) کنید.");
-                window.open("https://wa.me/message/3YHT6E4WZFNLM1", "_blank");
-            }).catch(err => {
-                alert("در حال هدایت به واتساپ بیزینس حسنی...");
-                window.open("https://wa.me/message/3YHT6E4WZFNLM1", "_blank");
-            });
-        }
-
-        function copyFloatMessage() {
-            let msg = "سلام وقت بخیر، جهت رزرو تاکسی بین‌المللی هرات مشهد پیام می‌دهم.";
-            navigator.clipboard.writeText(msg);
+            // کدگذاری متن برای ارسال بدون مشکل در پروتکل استاندارد لینک واتساپ
+            let encodedMessage = encodeURIComponent(message);
+            
+            // ارسال مستقیم به شماره بیزینس شما همراه با اطلاعات کامل فرم متنی
+            let whatsappUrl = https://wa.me/93780889098?text=${encodedMessage};
+            
+            window.open(whatsappUrl, "_blank");
         }
     </script>
 
